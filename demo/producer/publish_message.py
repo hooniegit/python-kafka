@@ -9,7 +9,6 @@ def publish_message(conf, topic:str, key:str, message):
     except Exception as E:
         print(E)
 
-
 def publish_message_json(conf, topic:str, key:str, message:dict):
     from confluent_kafka import Producer
     import json
@@ -22,12 +21,16 @@ def publish_message_json(conf, topic:str, key:str, message:dict):
         print(E)
 
 if __name__ == "__main__":
+    from datetime import datetime
+    from time import sleep
+    
     conf = {'bootstrap.servers': 'localhost:9092'}
-    topic = "serializingProducer"
+    topic = "test"
     key = "2024-01-02"
-    message = {'intro':'hello, kafka!'}
+    message = {'message':'hello, kafka!', 'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")} 
     
     publish_message(conf=conf, topic=topic, key=key, message=str(message)) #1
-    publish_message_json(conf=conf, topic=topic, key=key, message=message) #2
+    sleep(3)
+    publish_message_json(conf=conf, topic=topic, key=key, message=message) # 2
     
     

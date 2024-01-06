@@ -16,7 +16,7 @@ def consume_messages(conf, topic:str):
             # read datas
             key = msg.key().decode('utf-8') if msg.key() else None
             try:
-                value= json.loads(msg.value().decode('utf-8')) if msg.value() else None
+                value = json.loads(msg.value().decode('utf-8')) if msg.value() else None
             except json.JSONDecodeError:
                 value = None
             value_type = type(value)
