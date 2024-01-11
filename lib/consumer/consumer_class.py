@@ -2,12 +2,17 @@ from confluent_kafka import Consumer
 import json
 
 class kafka_consumer:
-    def __init__(self, conf:dict, topic:str):
+    def __init__(self, conf:dict):
         self.conf = conf
-        self.topic = topic
         self.consumer_client = Consumer(conf)
-        self.consumer_client.subscribe([topic])
-        # print("Kafka consumer created successfully.") # test
+        print("Kafka consumer created successfully.") # test
+
+class kafka_consumer_poll(kafka_consumer):
+    def __init__(self, consumer_client, topic):
+        super().__init__(consumer_client)
+        self.topic = topic
+        self.consumer_client.subscribe([self.topic])
+        print("Kafka consumer demo created successfully.") # test
     
     def poll_messages(self):
         try:
@@ -39,5 +44,5 @@ if __name__ == "__main__":
             'group.id': 'TEST',
             'auto.offset.reset': 'earliest' }
     topic = "test"
-    consumer = kafka_consumer(conf, topic)
+    consumer = kafka_consumer_poll(conf, topic)
     consumer.poll_messages()
