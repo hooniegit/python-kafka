@@ -1,4 +1,3 @@
-* README.md written in KOREAN
 # python-kafka
 studying kafka based on python module 'confluent_kafka'
 <br><br>
