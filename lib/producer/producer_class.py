@@ -1,10 +1,10 @@
 from confluent_kafka import Producer
 
-class kafka_producer:
+class KafkaProducer:
     def __init__(self, conf:dict):
         self.conf = conf
         self.producer_client = Producer(conf)
-        print("Kafka producer created successfully.") # test
+        # print("Kafka producer created successfully.") # test
     
     def publish_message(self, topic:str, key:str, message, partition:int=None):
         try:
@@ -19,5 +19,6 @@ class kafka_producer:
 
 if __name__ == "__main__":
     conf = {'bootstrap.servers': 'localhost:9092'}
-    producer = kafka_producer(conf)
+    producer = KafkaProducer(conf)
     producer.publish_message(topic="test", key="demo", message="Hello, Kafka!")
+    

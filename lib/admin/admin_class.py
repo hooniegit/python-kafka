@@ -1,6 +1,6 @@
 from confluent_kafka.admin import AdminClient, NewTopic
 
-class kafka_admin:
+class KafkaAdmin:
     def __init__(self, conf:dict):
         self.conf = conf
         self.admin_client = AdminClient(self.conf)
@@ -31,5 +31,5 @@ class kafka_admin:
 
 if __name__ == "__main__":
     conf = {'bootstrap.servers': 'localhost:9092'}
-    admin = kafka_admin(conf)
+    admin = KafkaAdmin(conf)
     admin.delete_topics(name_list=["test"])
