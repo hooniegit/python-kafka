@@ -1,8 +1,17 @@
+* README.md written in KOREAN
 # python-kafka
-Use Python Module 'confluent_kafka' To Study Kafka Logics
+studying kafka based on python module 'confluent_kafka'
 <br><br>
 
-# Before Start
+# about
+<br><br>
+
+# requirements
+### apt
 ``` bash
-pip install confluent_kafka jsonschema requests
 ```
+### pip
+``` bash
+pip install confluent_kafka
+```
+<br><br>
