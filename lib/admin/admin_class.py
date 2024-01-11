@@ -4,7 +4,7 @@ class kafka_admin:
     def __init__(self, conf:dict):
         self.conf = conf
         self.admin_client = AdminClient(self.conf)
-        print("admin created")
+        # print("Kafka admin created successfully.") # test
     
     def create_topics(self, name_list:list, num_partitions:int=1, replication_factor:int=1):
         # check topic existance

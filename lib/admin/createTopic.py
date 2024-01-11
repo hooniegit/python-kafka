@@ -40,5 +40,3 @@ if __name__ == "__main__":
     
     delete_name_list = []
     delete_topics(conf=conf, name_list=delete_name_list)
-
-    
