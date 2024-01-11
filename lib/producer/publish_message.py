@@ -29,8 +29,8 @@ if __name__ == "__main__":
     key = "2024-01-02"
     message = {'message':'hello, kafka!', 'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")} 
     
-    publish_message(conf=conf, topic=topic, key=key, message=str(message)) #1
-    sleep(3)
+    # publish_message(conf=conf, topic=topic, key=key, message=str(message)) #1
+    # sleep(3)
     publish_message_json(conf=conf, topic=topic, key=key, message=message) # 2
     
     
